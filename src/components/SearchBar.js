@@ -11,14 +11,17 @@ class SearchBar extends Component {
 		this.youTubeSearch = props.onSearchTermChange;
 	} // end constructor()
 
+	// onInputChange triggered by an onChange event from the <input> field of <SearchBar />
+	onInputChange(term) {
+		console.log('input change event triggered', event.target.value);
+		this.setState({ term });
+		this.youTubeSearch(term);
+	}
+
 	render() {
 		return (
 			<div>
-				<input onChange={ event => {
-					console.log('input change event triggered', event.target.value);
-					this.setState({ term: event.target.vale });
-					this.youTubeSearch(event.target.value);
-				}}/>
+				<input onChange={event => { this.onInputChange(event.target.value) }}/>
 			</div>
 		);
 	}
