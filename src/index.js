@@ -5,6 +5,7 @@ import youTubeApiSearch from 'youtube-api-search';
 
 // COMPNENT IMPORTS
 import SearchBar from './components/SearchBar';
+import VideoDetails from './components/VideoDetails';
 
 // VARIABLE DECLARATIONS
 const API_KEY = 'AIzaSyC_d_AOhR5ZNo2XA7avz83W2qJCmlr6bN0';
@@ -44,6 +45,7 @@ class App extends Component {
 			<div>
 				<h1>YouTube Search-O-Matic 5000</h1>
 				<SearchBar />
+				<VideoDetails />
 			</div>
 		);
 	} // end render()
