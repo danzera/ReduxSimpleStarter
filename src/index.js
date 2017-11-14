@@ -40,11 +40,12 @@ class App extends Component {
 		});
 	} // end youTubeSearch()
 
+	// youTubeSearch function is passed as a callback function to <SearchBar />
 	render() {
 		return (
 			<div>
 				<h1>YouTube Search-O-Matic 5000</h1>
-				<SearchBar />
+				<SearchBar onSearchTermChange={this.youTubeSearch} />
 				<VideoDetails selectedVideo={this.state.selectedVideo} />
 			</div>
 		);
