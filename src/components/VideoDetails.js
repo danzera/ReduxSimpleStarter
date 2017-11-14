@@ -1,6 +1,7 @@
 import React from 'react';
 
 const VideoDetails = ({ selectedVideo }) => {
+	console.log('rendering VideoDetails for selectedVideo', selectedVideo);
 	// alternate return statement while waiting for the async call to the YouTube API
 	if (!selectedVideo) {
 		return <div>Elevator music...</div>;

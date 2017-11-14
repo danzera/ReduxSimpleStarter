@@ -7,21 +7,21 @@ class SearchBar extends Component {
 		this.state = {
 			term: ''
 		};
-
-		this.youTubeSearch = props.onSearchTermChange;
 	} // end constructor()
 
 	// onInputChange triggered by an onChange event from the <input> field of <SearchBar />
 	onInputChange(term) {
-		console.log('input change event triggered', event.target.value);
+		console.log('input change event triggered', term);
 		this.setState({ term });
-		this.youTubeSearch(term);
+		this.props.onSearchTermChange(term);
 	}
 
 	render() {
 		return (
-			<div>
-				<input onChange={event => { this.onInputChange(event.target.value) }}/>
+			<div className="search-bar">
+				<input
+					value={this.state.term}
+					onChange={event => { this.onInputChange(event.target.value) }}/>
 			</div>
 		);
 	}

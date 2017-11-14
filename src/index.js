@@ -26,6 +26,7 @@ class App extends Component {
 	} // end constructor()
 
 	youTubeSearch(term) {
+		console.log('youTubeSearch triggered for term', term);
 		const options = {
 			key: API_KEY,
 			term
@@ -45,7 +46,7 @@ class App extends Component {
 		return (
 			<div>
 				<h1>YouTube Search-O-Matic 5000</h1>
-				<SearchBar onSearchTermChange={this.youTubeSearch} />
+				<SearchBar onSearchTermChange={term => this.youTubeSearch(term)} />
 				<VideoDetails selectedVideo={this.state.selectedVideo} />
 			</div>
 		);
