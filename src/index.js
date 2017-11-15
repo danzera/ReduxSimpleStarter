@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import youTubeApiSearch from 'youtube-api-search';
+import _ from 'lodash';
 
 // COMPNENT IMPORTS
 import SearchBar from './components/SearchBar';
@@ -26,14 +27,12 @@ class App extends Component {
 	} // end constructor()
 
 	youTubeSearch(term) {
-		console.log('youTubeSearch triggered for term', term);
 		const options = {
 			key: API_KEY,
 			term
 		};
 
 		youTubeApiSearch(options, videos => {
-			console.log('youTubeApiSearch for term', options.term, 'results', videos);
 			this.setState({
 				videos,
 				selectedVideo: videos[0]
@@ -43,10 +42,12 @@ class App extends Component {
 
 	// youTubeSearch function is passed as a callback function to <SearchBar />
 	render() {
+		const youTubeSearch = _.debounce((term) => {this.youTubeSearch(term)}, 500);
+
 		return (
 			<div>
 				<h1>YouTube Search-O-Matic 5000</h1>
-				<SearchBar onSearchTermChange={term => this.youTubeSearch(term)} />
+				<SearchBar onSearchTermChange={youTubeSearch} />
 				<VideoDetails selectedVideo={this.state.selectedVideo} />
 			</div>
 		);

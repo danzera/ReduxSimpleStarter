@@ -11,7 +11,6 @@ class SearchBar extends Component {
 
 	// onInputChange triggered by an onChange event from the <input> field of <SearchBar />
 	onInputChange(term) {
-		console.log('input change event triggered', term);
 		this.setState({ term });
 		this.props.onSearchTermChange(term);
 	}
