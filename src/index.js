@@ -7,6 +7,7 @@ import _ from 'lodash';
 // COMPNENT IMPORTS
 import SearchBar from './components/SearchBar';
 import VideoDetails from './components/VideoDetails';
+import VideoList from './components/VideoList';
 
 // VARIABLE DECLARATIONS
 const API_KEY = 'AIzaSyC_d_AOhR5ZNo2XA7avz83W2qJCmlr6bN0';
@@ -49,6 +50,7 @@ class App extends Component {
 				<h1>YouTube Search-O-Matic 5000</h1>
 				<SearchBar onSearchTermChange={youTubeSearch} />
 				<VideoDetails selectedVideo={this.state.selectedVideo} />
+				<VideoList />
 			</div>
 		);
 	} // end render()
