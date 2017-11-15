@@ -50,7 +50,7 @@ class App extends Component {
 				<h1>YouTube Search-O-Matic 5000</h1>
 				<SearchBar onSearchTermChange={youTubeSearch} />
 				<VideoDetails selectedVideo={this.state.selectedVideo} />
-				<VideoList />
+				<VideoList videos={this.state.videos}/>
 			</div>
 		);
 	} // end render()
