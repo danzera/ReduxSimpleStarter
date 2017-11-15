@@ -1,9 +1,9 @@
 import React from 'react';
 
-const VideoListItem = (props) => {
+const VideoListItem = ({video, onVideoSelect}) => {
 	
 	return (
-		<li>{props.video.snippet.title}</li>
+		<li onClick={event => onVideoSelect(video)}>{video.snippet.title}</li>
 	);
 }
 

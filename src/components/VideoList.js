@@ -1,15 +1,15 @@
 import React from 'react';
 import VideoListItem from './VideoListItem';
 
-const VideoList = (props) => {
+const VideoList = ({videos, onVideoSelect}) => {
 	// create array of <VideoListItem /> components to be rendered within <VideoList />
-	const videos = props.videos.map((video, index, videos) => {
-		return <VideoListItem key={video.etag} video={video} />
+	const videoListItems = videos.map((video, index, videos) => {
+		return <VideoListItem key={video.etag} video={video} onVideoSelect={selectedVideo => onVideoSelect(selectedVideo)} />
 	});
 
 	return (
 		<ul>
-			{videos}
+			{videoListItems}
 		</ul>
 	);
 }
